@@ -18,6 +18,26 @@ class Grid extends Component {
     ctx.fillRect(0, 20, 20, 20);
   }
 
+  clearCanvas = () => {
+    const canvas = this.refs.canvas;
+    const ctx = canvas.getContext('2d');
+
+    ctx.clearRect(0, 0, 300, 300);
+    for (let i = 0; i <= this.refs.canvas.width; i += 20) {
+      ctx.moveTo(i, 0);
+      ctx.lineTo(i, 600);
+      ctx.lineWidth = 0.05;
+      ctx.stroke();
+    };
+
+    for (let j = 0; j <= this.refs.canvas.height; j += 20) {
+      ctx.moveTo(0, j);
+      ctx.lineTo(600, j);
+      ctx.lineWidth = 0.05;
+      ctx.stroke();
+    };
+  }
+
   updateCanvas() {
       const canvas = this.refs.canvas;
       const ctx = canvas.getContext('2d');
@@ -43,7 +63,14 @@ class Grid extends Component {
   render() {
     return (
       <div className="canvas-container">
-      <canvas ref="canvas" width="300" height="300"></canvas>
+        <canvas ref="canvas" width="300" height="300">
+        </canvas>
+
+        <section>
+          <button onClick={this.clearCanvas}>
+            Reset
+          </button>
+        </section>
       </div>
     );
   }
