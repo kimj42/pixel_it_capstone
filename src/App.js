@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Main from './components/Main.js'
+import Grid from './components/Grid.js'
+import Palette from './components/Palette.js'
 
 class App extends Component {
   render() {
@@ -11,7 +11,8 @@ class App extends Component {
           <h1>Pixel It</h1>
         </header>
         <body>
-          <Main />
+          <Grid />
+          <Palette />
         </body>
       </div>
     );
