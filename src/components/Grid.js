@@ -26,22 +26,24 @@ class Grid extends Component {
     for (let i = 0; i <= this.refs.canvas.width; i += 20) {
       ctx.moveTo(i, 0);
       ctx.lineTo(i, 600);
-      ctx.lineWidth = 0.05;
+      ctx.lineWidth = 1;
       ctx.stroke();
     };
 
     for (let j = 0; j <= this.refs.canvas.height; j += 20) {
       ctx.moveTo(0, j);
       ctx.lineTo(600, j);
-      ctx.lineWidth = 0.05;
+      ctx.lineWidth = 1;
       ctx.stroke();
     };
   }
 
   updateCanvas() {
+      // this gets the ref attribute from canvas tag
       const canvas = this.refs.canvas;
+      // ctx means context and 2d lets me do a 2d drawing or fill
       const ctx = canvas.getContext('2d');
-      // ctx.fillRect(0,0, 200, 100);
+
 
       for (let i = 0; i <= this.refs.canvas.width; i += 20) {
         ctx.moveTo(i, 0);
