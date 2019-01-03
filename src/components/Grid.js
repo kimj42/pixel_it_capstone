@@ -12,7 +12,10 @@ class Grid extends Component {
 
     ctx.fillStyle = "red";
     // move to right, move to top, lengthen to right, lengthen to bottom
-    ctx.fillRect(1, 1, 18, 8);
+    ctx.fillRect(0, 0, 20, 20);
+
+    ctx.fillStyle = "blue";
+    ctx.fillRect(0, 20, 20, 20);
   }
 
   updateCanvas() {
@@ -20,14 +23,14 @@ class Grid extends Component {
       const ctx = canvas.getContext('2d');
       // ctx.fillRect(0,0, 200, 100);
 
-      for (let i = 0; i <= 300; i += 20) {
+      for (let i = 0; i <= this.refs.canvas.width; i += 20) {
         ctx.moveTo(i, 0);
         ctx.lineTo(i, 600);
         ctx.lineWidth = 0.05;
         ctx.stroke();
       };
 
-      for (let j = 0; j <= 300; j += 10) {
+      for (let j = 0; j <= this.refs.canvas.height; j += 20) {
         ctx.moveTo(0, j);
         ctx.lineTo(600, j);
         ctx.lineWidth = 0.05;
@@ -40,7 +43,7 @@ class Grid extends Component {
   render() {
     return (
       <div className="canvas-container">
-      <canvas ref="canvas" className="canvas"></canvas>
+      <canvas ref="canvas" width="300" height="300"></canvas>
       </div>
     );
   }
