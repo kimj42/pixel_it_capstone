@@ -4,30 +4,10 @@ class Grid extends Component {
 
   componentDidMount() {
       this.updateCanvas();
-      // const canvas = this.refs.canvas;
-      // console.log(this.refs.canvas);
-      // const CANVAS = this.refs.canvas;
-      // window.addEventListener('click', function(event){
-      //   console.log(event.x, event.y);
-      //   //first box coordinates are
-      //   //top left: x: 263, y: 118
-      //   // top right: x: 284, y: 118
-      //   //bottom left: x: 264, y: 137
-      //   //bottom right: x: 283, y: 137
-      //
-      //   if (event.x >= 263 && event.x <= 283 && event.y >= 118 && event.y <= 138) {
-      //     console.log("i'm in if statement");
-      //     console.log(CANVAS);
-      //     CANVAS.addEventListener('click', this.handleClick);
-      //   }
-      // })
   };
 
   handleClick = (event) => {
 
-    // const CANVAS = this.refs.canvas;
-    // window.addEventListener('click', function(event){
-    //   console.log(event.x, event.y);
       //first box coordinates are
       //top left: x: 263, y: 118
       // top right: x: 284, y: 118
@@ -41,19 +21,22 @@ class Grid extends Component {
         ctx.fillStyle = "red";
         // move to right, move to top, lengthen to right, lengthen to bottom
         ctx.fillRect(0, 0, 20, 20);
+
+        //the last two 20 x 20, (x,y,20,20), will remain the same cuz that's the size of one pixel
+
+        //2nd box vertical COLUMN
+        // ctx.fillRect(0, 20, 20, 20);
+        //3rd box
+        // ctx.fillRect(0, 40, 20, 20);
+
+        //2nd box horizontal ROW
+        // ctx.fillRect(20, 0, 20, 20);
+        //3rd box horizontal
+        // ctx.fillRect(280, 280, 20, 20);
       }
-    // })
-    //
-    // const canvas = this.refs.canvas;
-    // const ctx = canvas.getContext('2d');
-    //
-    // ctx.fillStyle = "red";
-    // // move to right, move to top, lengthen to right, lengthen to bottom
-    // ctx.fillRect(0, 0, 20, 20);
-    //
-    // ctx.fillStyle = "blue";
-    // ctx.fillRect(0, 20, 20, 20);
   };
+
+
 
   clearCanvas = () => {
     const canvas = this.refs.canvas;
@@ -122,3 +105,25 @@ class Grid extends Component {
 
 
 export default Grid;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// so maybe i need to create a hash that has {x: 0, y: 0, w: 20, h: 20}
+// but do i put that in the array or a hash
+// i guess there is both ways to do this with ar or hash
+// but ok so when i
