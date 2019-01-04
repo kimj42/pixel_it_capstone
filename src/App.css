@@ -1,7 +1,6 @@
 .App-header {
   background-color: forestgreen;
   min-height: 10vh;
-  /* display: flex; */
   text-align: right;
   font-size: calc(10px + 2vmin);
   color: white;
@@ -9,5 +8,4 @@
 
 h1 {
   margin-top: auto;
-  padding-right: 1em;
 }
