@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Grid from './components/Grid.js'
-// import Palette from './components/Palette.js'
+import Palette from './components/Palette.js'
 
 class App extends Component {
   componentDidMount(){
@@ -16,6 +16,7 @@ class App extends Component {
         </header>
         <section>
           <Grid />
+          <Palette />
         </section>
       </div>
     );

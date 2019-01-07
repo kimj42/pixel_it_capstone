@@ -2,12 +2,20 @@ import React, { Component } from 'react';
 import './Grid.css';
 class Grid extends Component {
 
+  constructor(props) {
+    super(props);
+
+    // this.state = {
+    //   fillColor: this.props.color,
+    // }
+  }
+
   componentDidMount() {
       this.updateCanvas();
   };
 
   handleClick = (event) => {
-
+    console.log(event.x);
       //first box coordinates are
       //top left: x: 263, y: 118
       // top right: x: 284, y: 118
@@ -33,7 +41,7 @@ class Grid extends Component {
         // ctx.fillRect(20, 0, 20, 20);
         //3rd box horizontal
         // ctx.fillRect(280, 280, 20, 20);
-      }
+      };
   };
 
 
@@ -45,14 +53,14 @@ class Grid extends Component {
     ctx.clearRect(0, 0, 300, 300);
     for (let i = 0; i <= ctx.canvas.width; i += 20) {
       ctx.moveTo(i, 0);
-      ctx.lineTo(i, 600);
+      ctx.lineTo(i, 300);
       ctx.lineWidth = 1;
       ctx.stroke();
     };
 
     for (let j = 0; j <= ctx.canvas.height; j += 20) {
       ctx.moveTo(0, j);
-      ctx.lineTo(600, j);
+      ctx.lineTo(300, j);
       ctx.lineWidth = 1;
       ctx.stroke();
     };
@@ -69,19 +77,19 @@ class Grid extends Component {
 
       for (let i = 0; i <= ctx.canvas.width; i += 20) {
         ctx.moveTo(i, 0);
-        ctx.lineTo(i, 600);
+        ctx.lineTo(i, 300);
         ctx.lineWidth = 1;
         ctx.stroke();
       };
 
       for (let j = 0; j <= ctx.canvas.height; j += 20) {
         ctx.moveTo(0, j);
-        ctx.lineTo(600, j);
+        ctx.lineTo(300, j);
         ctx.lineWidth = 1;
         ctx.stroke();
       };
 
-      canvas.addEventListener('click', this.handleClick)
+      canvas.addEventListener('click', this.handleClick);
   };
 
 
@@ -112,6 +120,7 @@ export default Grid;
 
 
 
+// CLICK BOX AREA INSTRUCTIONS:
 
 
 
@@ -122,8 +131,11 @@ export default Grid;
 
 
 
-
-// so maybe i need to create a hash that has {x: 0, y: 0, w: 20, h: 20}
-// but do i put that in the array or a hash
-// i guess there is both ways to do this with ar or hash
-// but ok so when i
+// FILL STYLE INSTRUCTIONS:
+// starting point/default/1st pixel is {x:0, y: 0, w:20, h:20}
+// total of 225 hashes like above for 300 x 300 px
+// ROW: x min: 0, x max: 280
+// COLUMN: y min: 0, y max: 280
+// w stays constant at 20
+// h stays constant at 20 as well
+// end point/last pixel is {x:280, y:280, w:20, h:20}
