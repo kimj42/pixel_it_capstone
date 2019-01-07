@@ -4,8 +4,22 @@ import Grid from './components/Grid.js'
 import Palette from './components/Palette.js'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      currentColor: "white",
+    }
+  }
+
   componentDidMount(){
     document.title = "Pixel It"
+  }
+
+  changeColor = (color) => {
+    return this.setState({
+      currentColor: color,
+    })
   }
 
   render() {
@@ -15,8 +29,8 @@ class App extends Component {
           <h1>Pixel It</h1>
         </header>
         <section>
-          <Grid />
-          <Palette />
+          <Grid colorToUse={this.state.currentColor}/>
+          <Palette changeColor={this.changeColor}/>
         </section>
       </div>
     );

@@ -26,7 +26,7 @@ class Grid extends Component {
         console.log("i'm in if statement");
         const ctx = this.refs.canvas.getContext('2d');
         // console.log(CANVAS);
-        ctx.fillStyle = "red";
+        ctx.fillStyle = `${this.props.colorToUse}`;
         // move to right, move to top, lengthen to right, lengthen to bottom
         ctx.fillRect(0, 0, 20, 20);
 

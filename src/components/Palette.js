@@ -6,7 +6,7 @@ class Palette extends Component {
     super(props);
 
     this.state = {
-      currentColor: "blue",
+      currentColor: "white",
     }
   }
 
@@ -40,7 +40,6 @@ class Palette extends Component {
 
   fillColor() {
     const ctx = this.refs.canvas.getContext('2d');
-    // console.log(CANVAS);
     ctx.fillStyle = "pink";
     // move to right, move to top, lengthen to right, lengthen to bottom
     ctx.fillRect(0, 0, 30, 30);
@@ -59,39 +58,55 @@ class Palette extends Component {
     console.log("pickColor");
 
     const ctx = this.refs.canvas.getContext('2d');
-    const pixelData = ctx.getImageData(0, 0, 30, 30).data;
+    let pixelData = ctx.getImageData(0, 0, 30, 30).data;
 
-    const r = pixelData[0];
-    const g = pixelData[1];
-    const b = pixelData[2];
-    const a = pixelData[3];
+    let colorNames = "";
+    let colorPalette = [];
 
-    let rR = Number(r).toString(16);
-    while (rR.length < 2) {
+    for (let i = 0; i < 3; i += 1) {
+      let r = pixelData[i];
+
+      let rR = Number(r).toString(16);
+      while (rR.length < 2) {
         rR = "0" + rR;
-    }
-    rR.toUpperCase();
-    console.log(rR);
+      }
+      rR.toUpperCase();
 
-    let gG = Number(g).toString(16);
-    while (gG.length < 2) {
-        gG = "0" + gG;
+      colorNames += rR;
     }
-    gG.toUpperCase();
+    console.log(colorNames);
+    let rgbColorName = `#${colorNames}`
+    colorPalette.push(rgbColorName);
 
-    let bB = Number(b).toString(16);
-    while (bB.length < 2) {
-        bB = "0" + bB;
+
+    pixelData = ctx.getImageData(0, 0, 30, 30).data;
+
+    colorNames = "";
+
+    for (let i = 0; i < 3; i += 1) {
+      let r = pixelData[i];
+
+      let rR = Number(r).toString(16);
+      while (rR.length < 2) {
+        rR = "0" + rR;
+      }
+      rR.toUpperCase();
+
+      colorNames += rR;
     }
-    bB.toUpperCase();
 
-    console.log(`#${rR}${gG}${bB}`);
+    rgbColorName = `#${colorNames}`
+    colorPalette.push(rgbColorName);
+
+    console.log(colorPalette);
 
     // console.log(pixelData);
     // ctx.putImageData(pixelData, 80, 90)
-    this.setState({
-      currentColor: "pink",
-    })
+    // this.setState({
+    //   currentColor: "pink",
+    // })
+
+    this.props.changeColor(colorPalette[0]);
   }
 
   render() {
