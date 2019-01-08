@@ -11,7 +11,6 @@ class Grid extends Component {
   };
 
   getLocationOfBox(event, xMin, xMax, yMin, yMax, x, y, w, h) {
-    console.log(event);
     if (event.x >= xMin && event.x <= xMax && event.y >= yMin && event.y <= yMax) {
       console.log("i'm in if statement");
       const ctx = this.refs.canvas.getContext('2d');
@@ -19,44 +18,28 @@ class Grid extends Component {
       ctx.fillStyle = `${this.props.colorToUse}`;
       // move to right, move to top, lengthen to right, lengthen to bottom
       ctx.fillRect(x, y, w, h);
-
-      //the last two 20 x 20, (x,y,20,20), will remain the same cuz that's the size of one pixel
-
-      //2nd box vertical COLUMN
-      // ctx.fillRect(0, 20, 20, 20);
-      //3rd box
-      // ctx.fillRect(0, 40, 20, 20);
-
-      //2nd box horizontal ROW
-      // ctx.fillRect(20, 0, 20, 20);
-      //3rd box horizontal
-      // ctx.fillRect(280, 280, 20, 20);
     };
   }
 
   handleClick = (event) => {
-    console.log(event);
-    //first box coordinates are
-    //top left: x: 263, y: 118
-    // top right: x: 284, y: 118
-    //bottom left: x: 264, y: 137
-    //bottom right: x: 283, y: 137
 
-    //the last two 20 x 20, (x,y,20,20), will remain the same cuz that's the size of one pixel
-    this.getLocationOfBox(event, 263, 283, 118, 138, 0, 0, 20, 20); //top l
-    this.getLocationOfBox(event, 263, 283, 138, 158, 0, 20, 20, 20);//bottom l
-    this.getLocationOfBox(event, 283, 303, 118, 138, 20, 0, 20, 20);//top r
-    this.getLocationOfBox(event, 283, 303, 138, 158, 20, 20, 20, 20);// b r
+    let minY = 118;
+    let maxY = minY + 20;
+    //1st row
+    for (let y = 0; y <= 280; y += 20) {
+      let x = 0;
+      // let minX = 263;
 
-    //2nd box vertical COLUMN
-    // ctx.fillRect(0, 20, 20, 20);
-    //3rd box
-    // ctx.fillRect(0, 40, 20, 20);
 
-    //2nd box horizontal ROW
-    // ctx.fillRect(20, 0, 20, 20);
-    //3rd box horizontal
-    // ctx.fillRect(280, 280, 20, 20);
+
+      for (let minX = 263; minX <= 543; minX += 20) {
+        let maxX = minX + 20;
+        this.getLocationOfBox(event, minX, maxX, minY, maxY, x, y, 20, 20)
+        x += 20;
+      }
+      minY += 20;
+      maxY += 20;
+    }
   };
 
 
