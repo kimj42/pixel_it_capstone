@@ -11,7 +11,7 @@ class Grid extends Component {
   };
 
   handleClick = (event) => {
-    console.log(event.x);
+    console.log(event);
       //first box coordinates are
       //top left: x: 263, y: 118
       // top right: x: 284, y: 118

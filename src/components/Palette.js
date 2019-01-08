@@ -55,90 +55,44 @@ class Palette extends Component {
     ctx.fillRect(30, 30, 30, 30);
   }
 
+  findColor(x, y, w, h) {
+    const ctx = this.refs.canvas.getContext('2d');
+    let pixelData = ctx.getImageData(x, y, w, h).data;
+    let colorNames = "";
+
+    for (let i = 0; i < 3; i += 1) {
+      let r = pixelData[i];
+
+      let rR = Number(r).toString(16);
+      while (rR.length < 2) {
+        rR = "0" + rR;
+      }
+      rR.toUpperCase();
+
+      colorNames += rR;
+    }
+
+    let rgbColorName = `#${colorNames}`
+    this.props.changeColor(rgbColorName);
+  }
+
   pickColor = (event) => {
+    console.log(event);
     if (event.clientX >= 80 && event.clientX <= 110 && event.clientY >= 210 && event.clientY <= 240 ) {
       console.log("PINK");
-      const ctx = this.refs.canvas.getContext('2d');
-      let pixelData = ctx.getImageData(0, 0, 30, 30).data;
-      let colorNames = "";
-
-      for (let i = 0; i < 3; i += 1) {
-        let r = pixelData[i];
-
-        let rR = Number(r).toString(16);
-        while (rR.length < 2) {
-          rR = "0" + rR;
-        }
-        rR.toUpperCase();
-
-        colorNames += rR;
-      }
-
-      let rgbColorName = `#${colorNames}`
-      this.props.changeColor(rgbColorName);
+      this.findColor(0, 0, 30, 30);
     }
     else if (event.clientX >= 110 && event.clientX <= 140 && event.clientY >= 210 && event.clientY <= 240) {
       console.log("MAGENTA");
-      const ctx = this.refs.canvas.getContext('2d');
-      let pixelData = ctx.getImageData(30, 0, 30, 30).data;
-      let colorNames = "";
-
-      for (let i = 0; i < 3; i += 1) {
-        let r = pixelData[i];
-
-        let rR = Number(r).toString(16);
-        while (rR.length < 2) {
-          rR = "0" + rR;
-        }
-        rR.toUpperCase();
-
-        colorNames += rR;
-      }
-
-      let rgbColorName = `#${colorNames}`
-      this.props.changeColor(rgbColorName);
+      this.findColor(30, 0, 30, 30);
     }
     else if (event.clientX >= 80 && event.clientX <= 110 && event.clientY >= 240 && event.clientY <= 270) {
       console.log("PURPLE");
-      const ctx = this.refs.canvas.getContext('2d');
-      let pixelData = ctx.getImageData(0, 30, 30, 30).data;
-      let colorNames = "";
-
-      for (let i = 0; i < 3; i += 1) {
-        let r = pixelData[i];
-
-        let rR = Number(r).toString(16);
-        while (rR.length < 2) {
-          rR = "0" + rR;
-        }
-        rR.toUpperCase();
-
-        colorNames += rR;
-      }
-
-      let rgbColorName = `#${colorNames}`
-      this.props.changeColor(rgbColorName);
+      this.findColor(0, 30, 30, 30);
     }
     else if (event.clientX >= 110 && event.clientX <= 140 && event.clientY >= 240 && event.clientY <= 270) {
       console.log("RED");
-      const ctx = this.refs.canvas.getContext('2d');
-      let pixelData = ctx.getImageData(30, 30, 30, 30).data;
-      let colorNames = "";
-
-      for (let i = 0; i < 3; i += 1) {
-        let r = pixelData[i];
-
-        let rR = Number(r).toString(16);
-        while (rR.length < 2) {
-          rR = "0" + rR;
-        }
-        rR.toUpperCase();
-
-        colorNames += rR;
-      }
-
-      let rgbColorName = `#${colorNames}`
-      this.props.changeColor(rgbColorName);
+      this.findColor(30, 30, 30, 30);
     }
   }
 
