@@ -10,34 +10,53 @@ class Grid extends Component {
       this.updateCanvas();
   };
 
+  getLocationOfBox(event, xMin, xMax, yMin, yMax, x, y, w, h) {
+    console.log(event);
+    if (event.x >= xMin && event.x <= xMax && event.y >= yMin && event.y <= yMax) {
+      console.log("i'm in if statement");
+      const ctx = this.refs.canvas.getContext('2d');
+      // console.log(CANVAS);
+      ctx.fillStyle = `${this.props.colorToUse}`;
+      // move to right, move to top, lengthen to right, lengthen to bottom
+      ctx.fillRect(x, y, w, h);
+
+      //the last two 20 x 20, (x,y,20,20), will remain the same cuz that's the size of one pixel
+
+      //2nd box vertical COLUMN
+      // ctx.fillRect(0, 20, 20, 20);
+      //3rd box
+      // ctx.fillRect(0, 40, 20, 20);
+
+      //2nd box horizontal ROW
+      // ctx.fillRect(20, 0, 20, 20);
+      //3rd box horizontal
+      // ctx.fillRect(280, 280, 20, 20);
+    };
+  }
+
   handleClick = (event) => {
     console.log(event);
-      //first box coordinates are
-      //top left: x: 263, y: 118
-      // top right: x: 284, y: 118
-      //bottom left: x: 264, y: 137
-      //bottom right: x: 283, y: 137
+    //first box coordinates are
+    //top left: x: 263, y: 118
+    // top right: x: 284, y: 118
+    //bottom left: x: 264, y: 137
+    //bottom right: x: 283, y: 137
 
-      if (event.x >= 263 && event.x <= 283 && event.y >= 118 && event.y <= 138) {
-        console.log("i'm in if statement");
-        const ctx = this.refs.canvas.getContext('2d');
-        // console.log(CANVAS);
-        ctx.fillStyle = `${this.props.colorToUse}`;
-        // move to right, move to top, lengthen to right, lengthen to bottom
-        ctx.fillRect(0, 0, 20, 20);
+    //the last two 20 x 20, (x,y,20,20), will remain the same cuz that's the size of one pixel
+    this.getLocationOfBox(event, 263, 283, 118, 138, 0, 0, 20, 20); //top l
+    this.getLocationOfBox(event, 263, 283, 138, 158, 0, 20, 20, 20);//bottom l
+    this.getLocationOfBox(event, 283, 303, 118, 138, 20, 0, 20, 20);//top r
+    this.getLocationOfBox(event, 283, 303, 138, 158, 20, 20, 20, 20);// b r
 
-        //the last two 20 x 20, (x,y,20,20), will remain the same cuz that's the size of one pixel
+    //2nd box vertical COLUMN
+    // ctx.fillRect(0, 20, 20, 20);
+    //3rd box
+    // ctx.fillRect(0, 40, 20, 20);
 
-        //2nd box vertical COLUMN
-        // ctx.fillRect(0, 20, 20, 20);
-        //3rd box
-        // ctx.fillRect(0, 40, 20, 20);
-
-        //2nd box horizontal ROW
-        // ctx.fillRect(20, 0, 20, 20);
-        //3rd box horizontal
-        // ctx.fillRect(280, 280, 20, 20);
-      };
+    //2nd box horizontal ROW
+    // ctx.fillRect(20, 0, 20, 20);
+    //3rd box horizontal
+    // ctx.fillRect(280, 280, 20, 20);
   };
 
 
