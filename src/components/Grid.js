@@ -4,10 +4,6 @@ class Grid extends Component {
 
   constructor(props) {
     super(props);
-
-    // this.state = {
-    //   fillColor: this.props.color,
-    // }
   }
 
   componentDidMount() {
