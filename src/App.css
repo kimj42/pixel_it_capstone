@@ -9,3 +9,31 @@
 h1 {
   margin-top: auto;
 }
+
+.mistyrose {
+  font-family: 'Faster One', cursive;
+  color: mistyrose;
+  font-weight: 600;
+  /* font-size: 2em; */
+}
+
+.lightPink  {
+  font-family: 'Faster One', cursive;
+  color: #FFB6C1 ;
+  font-weight: 600;
+  /* font-size: 2em; */
+}
+
+.hotPink {
+  font-family: 'Faster One', cursive;
+  color: #FF69B4;
+  font-weight: 600;
+  /* font-size: 2em; */
+}
+
+.fushcia {
+  font-family: 'Faster One', cursive;
+  color: #FF00FF;
+  font-weight: 600;
+  /* font-size: 2em; */
+}

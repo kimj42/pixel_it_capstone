@@ -28,9 +28,6 @@ class Grid extends Component {
     //1st row
     for (let y = 0; y <= 280; y += 20) {
       let x = 0;
-      // let minX = 263;
-
-
 
       for (let minX = 263; minX <= 543; minX += 20) {
         let maxX = minX + 20;
