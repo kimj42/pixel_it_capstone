@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Grid.css';
+
 class Grid extends Component {
 
   constructor(props) {
@@ -38,8 +39,6 @@ class Grid extends Component {
       maxY += 20;
     }
   };
-
-
 
   clearCanvas = () => {
     const canvas = this.refs.canvas;
