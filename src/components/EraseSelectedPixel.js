@@ -6,7 +6,7 @@ class Delete extends Component {
 
   onClick = () => {
     console.log("ON CLICK IN DELETE");
-    this.props.changeColor("white");
+    this.props.eraseColor();
   }
 
   render() {

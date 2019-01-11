@@ -10,7 +10,7 @@ class App extends Component {
     super(props)
 
     this.state = {
-      currentColor: "white",
+      currentColor: "green",
     }
   }
 
@@ -57,7 +57,7 @@ class App extends Component {
         <section>
           <ul>
             <li>
-              <Delete changeColor={this.changeColor}/>
+              <Delete eraseColor={this.eraseColor}/>
             </li>
             <li>
               <Bucket />

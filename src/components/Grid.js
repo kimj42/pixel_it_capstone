@@ -7,9 +7,18 @@ class Grid extends Component {
     super(props);
   }
 
+  resize = () => this.forceUpdate()
+
   componentDidMount() {
       this.updateCanvas();
+      window.addEventListener('resize', this.resize)
   };
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.resize)
+  }
+
+
 
   getLocationOfBox(event, xMin, xMax, yMin, yMax, x, y, w, h) {
     if (event.x >= xMin && event.x <= xMax && event.y >= yMin && event.y <= yMax) {
