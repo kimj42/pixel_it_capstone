@@ -11,21 +11,10 @@ class Grid extends Component {
     }
   }
 
-  resize = (event) => {
-    console.log(event);
-    console.log(this.refs.canvas.offsetLeft, this.refs.canvas.offsetTop, this.refs.canvas.offsetHeight);
-    // this.forceUpdate()
-  }
-
   componentDidMount() {
-    window.addEventListener('resize', this.resize)
       this.updateCanvas();
-
   };
 
-//   componentWillUnmount() {
-//   window.removeEventListener('resize', this.resize)
-// }
 
   getLocationOfBox(event, xMin, xMax, yMin, yMax, x, y, w, h) {
     if (event.x >= xMin && event.x <= xMax && event.y >= yMin && event.y <= yMax) {
@@ -39,7 +28,6 @@ class Grid extends Component {
   }
 
   handleClick = (event) => {
-    console.log(event.target.offsetTop, event.target.offsetLeft);
 
     let minY = event.target.offsetTop;
     let maxY = minY + 20;
