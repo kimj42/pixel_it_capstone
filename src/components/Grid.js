@@ -5,20 +5,27 @@ class Grid extends Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+
+    }
   }
 
-  resize = () => this.forceUpdate()
+  resize = (event) => {
+    console.log(event);
+    console.log(this.refs.canvas.offsetLeft, this.refs.canvas.offsetTop, this.refs.canvas.offsetHeight);
+    // this.forceUpdate()
+  }
 
   componentDidMount() {
+    window.addEventListener('resize', this.resize)
       this.updateCanvas();
-      window.addEventListener('resize', this.resize)
+
   };
 
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.resize)
-  }
-
-
+//   componentWillUnmount() {
+//   window.removeEventListener('resize', this.resize)
+// }
 
   getLocationOfBox(event, xMin, xMax, yMin, yMax, x, y, w, h) {
     if (event.x >= xMin && event.x <= xMax && event.y >= yMin && event.y <= yMax) {
@@ -32,14 +39,15 @@ class Grid extends Component {
   }
 
   handleClick = (event) => {
+    console.log(event.target.offsetTop, event.target.offsetLeft);
 
-    let minY = 118;
+    let minY = event.target.offsetTop;
     let maxY = minY + 20;
     //1st row
     for (let y = 0; y <= 280; y += 20) {
       let x = 0;
 
-      for (let minX = 263; minX <= 543; minX += 20) {
+      for (let minX = event.target.offsetLeft; minX <= (event.target.offsetLeft + 280); minX += 20) {
         let maxX = minX + 20;
         this.getLocationOfBox(event, minX, maxX, minY, maxY, x, y, 20, 20)
         x += 20;
