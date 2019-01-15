@@ -5,10 +5,6 @@ class Grid extends Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
-
-    }
   }
 
   componentDidMount() {
@@ -35,7 +31,7 @@ class Grid extends Component {
     for (let y = 0; y <= 280; y += 20) {
       let x = 0;
 
-      for (let minX = event.target.offsetLeft; minX <= (event.target.offsetLeft + 280); minX += 20) {
+      for (let minX = event.target.offsetLeft; minX <= (event.target.offsetLeft + (event.target.height - 20)); minX += 20) {
         let maxX = minX + 20;
         this.getLocationOfBox(event, minX, maxX, minY, maxY, x, y, 20, 20)
         x += 20;
@@ -65,6 +61,9 @@ class Grid extends Component {
     };
   };
 
+woo() {
+  console.log("woo");
+}
 
 
   updateCanvas() {
@@ -87,8 +86,9 @@ class Grid extends Component {
         ctx.lineWidth = 1;
         ctx.stroke();
       };
-
+canvas.addEventListener('mousedown', this.woo)
       canvas.addEventListener('click', this.handleClick);
+
   };
 
 
