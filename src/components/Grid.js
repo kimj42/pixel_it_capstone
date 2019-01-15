@@ -61,29 +61,39 @@ class Grid extends Component {
   };
 
   updateCanvas() {
-      // this gets the ref attribute from canvas tag
-      const canvas = this.refs.canvas;
-      // ctx means context and 2d lets me do a 2d drawing or fill
-      const ctx = canvas.getContext('2d');
+    // this gets the ref attribute from canvas tag
+    const canvas = this.refs.canvas;
+    // ctx means context and 2d lets me do a 2d drawing or fill
+    const ctx = canvas.getContext('2d');
 
 
-      for (let i = 0; i <= ctx.canvas.width; i += 20) {
-        ctx.moveTo(i, 0);
-        ctx.lineTo(i, 300);
-        ctx.lineWidth = 1;
-        ctx.stroke();
-      };
+    for (let i = 0; i <= ctx.canvas.width; i += 20) {
+      ctx.moveTo(i, 0);
+      ctx.lineTo(i, 300);
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    };
 
-      for (let j = 0; j <= ctx.canvas.height; j += 20) {
-        ctx.moveTo(0, j);
-        ctx.lineTo(300, j);
-        ctx.lineWidth = 1;
-        ctx.stroke();
-      };
+    for (let j = 0; j <= ctx.canvas.height; j += 20) {
+      ctx.moveTo(0, j);
+      ctx.lineTo(300, j);
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    };
 
-      canvas.addEventListener('mousedown', this.handleClick)
-      canvas.addEventListener('mouseup', this.handleClick)
-  };
+    let mousePressed = false;
+
+    canvas.addEventListener('mousedown', (event) => {mousePressed = true;
+    this.handleClick(event);
+    });
+    canvas.addEventListener('mousemove', (event) => { if (mousePressed) {
+      this.handleClick(event);
+    }});
+    canvas.addEventListener('mouseup', (event) => {
+      mousePressed = false;
+      this.handleClick(event);
+    });
+};
 
 
 
