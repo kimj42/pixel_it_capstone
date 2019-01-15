@@ -5,7 +5,6 @@ import Eraser from './eraser.png'
 class Delete extends Component {
 
   onClick = () => {
-    console.log("ON CLICK IN DELETE");
     this.props.eraseColor();
   }
 

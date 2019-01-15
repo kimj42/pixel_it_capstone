@@ -60,7 +60,7 @@ class App extends Component {
               <Delete eraseColor={this.eraseColor}/>
             </li>
             <li>
-              <Bucket />
+              <Bucket colorToUse={this.state.currentColor}/>
             </li>
           </ul>
         </section>

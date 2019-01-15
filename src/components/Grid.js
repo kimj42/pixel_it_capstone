@@ -93,9 +93,7 @@ class Grid extends Component {
       mousePressed = false;
       this.handleClick(event);
     });
-};
-
-
+  };
 
   render() {
 
@@ -124,15 +122,6 @@ export default Grid;
 
 
 // CLICK BOX AREA INSTRUCTIONS:
-
-
-
-
-
-
-
-
-
 
 // FILL STYLE INSTRUCTIONS:
 // starting point/default/1st pixel is {x:0, y: 0, w:20, h:20}
