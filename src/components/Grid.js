@@ -14,7 +14,6 @@ class Grid extends Component {
 
   getLocationOfBox(event, xMin, xMax, yMin, yMax, x, y, w, h) {
     if (event.x >= xMin && event.x <= xMax && event.y >= yMin && event.y <= yMax) {
-      console.log("i'm in if statement");
       const ctx = this.refs.canvas.getContext('2d');
       // console.log(CANVAS);
       ctx.fillStyle = `${this.props.colorToUse}`;
@@ -61,11 +60,6 @@ class Grid extends Component {
     };
   };
 
-woo() {
-  console.log("woo");
-}
-
-
   updateCanvas() {
       // this gets the ref attribute from canvas tag
       const canvas = this.refs.canvas;
@@ -86,9 +80,9 @@ woo() {
         ctx.lineWidth = 1;
         ctx.stroke();
       };
-canvas.addEventListener('mousedown', this.woo)
-      canvas.addEventListener('click', this.handleClick);
 
+      canvas.addEventListener('mousedown', this.handleClick)
+      canvas.addEventListener('mouseup', this.handleClick)
   };
 
 
