@@ -1,10 +1,14 @@
 .App-header {
   background-color: forestgreen;
   min-height: 10vh;
-  text-align: right;
-  font-size: calc(10px + 2vmin);
+  text-align: center;
+  font-size: calc(40px + 2vmin);
   color: white;
 }
+
+/* .App {
+  background-color: mistyrose;
+} */
 
 h1 {
   margin-top: auto;

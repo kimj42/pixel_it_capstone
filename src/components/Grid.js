@@ -2,16 +2,21 @@ import React, { Component } from 'react';
 import './Grid.css';
 import Bucket from './Bucket.js'
 
+
+
 class Grid extends Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      bucketFill: false,
+    }
   }
 
   componentDidMount() {
       this.updateCanvas();
   };
-
 
   getLocationOfBox(event, xMin, xMax, yMin, yMax, x, y, w, h) {
     if (event.x >= xMin && event.x <= xMax && event.y >= yMin && event.y <= yMax) {
@@ -98,11 +103,14 @@ class Grid extends Component {
 
   bucketFillGrid = () => {
     console.log("BUC IN GRID");
-    const canvas = this.refs.canvas;
-    const ctx = canvas.getContext('2d');
-
-    ctx.fillStyle = `${this.props.colorToUse}`
-    ctx.fillRect(0, 0, 300, 300);
+    // const canvas = this.refs.canvas;
+    // const ctx = canvas.getContext('2d');
+    //
+    // ctx.fillStyle = `${this.props.colorToUse}`
+    // ctx.fillRect(0, 0, 300, 300);
+    this.setState({
+      bucketFill: true,
+    })
   };
 
   render() {
