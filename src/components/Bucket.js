@@ -4,8 +4,9 @@ import BucketIcon from './bucket.png'
 
 class Bucket extends Component {
   onClick = () => {
-    console.log("BUCKECT ON CLICK");
+    console.log("BUC IN BUCKET");
     console.log(this.props.colorToUse);
+    this.props.clickHandler();
   }
 
   render() {

@@ -3,7 +3,7 @@ import './App.css';
 import Grid from './components/Grid.js'
 import Palette from './components/Palette.js'
 import Delete from './components/EraseSelectedPixel.js';
-import Bucket from './components/Bucket.js'
+
 
 class App extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class App extends Component {
   }
 
   eraseColor = () => {
-    console.log("ERASE COLOR IN APP");
+    // console.log("ERASE COLOR IN APP");
     return this.setState({
       currentColor: "white",
     })
@@ -58,9 +58,6 @@ class App extends Component {
           <ul>
             <li>
               <Delete eraseColor={this.eraseColor}/>
-            </li>
-            <li>
-              <Bucket colorToUse={this.state.currentColor}/>
             </li>
           </ul>
         </section>

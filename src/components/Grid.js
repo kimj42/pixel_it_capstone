@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Grid.css';
+import Bucket from './Bucket.js'
 
 class Grid extends Component {
 
@@ -95,6 +96,15 @@ class Grid extends Component {
     });
   };
 
+  bucketFillGrid = () => {
+    console.log("BUC IN GRID");
+    const canvas = this.refs.canvas;
+    const ctx = canvas.getContext('2d');
+
+    ctx.fillStyle = `${this.props.colorToUse}`
+    ctx.fillRect(0, 0, 300, 300);
+  };
+
   render() {
 
     return (
@@ -106,6 +116,10 @@ class Grid extends Component {
           <button onClick={this.clearCanvas}>
             Reset
           </button>
+        </section>
+
+        <section>
+          <Bucket colorToUse={this.props.colorToUse} clickHandler={this.bucketFillGrid}/>
         </section>
       </div>
     );

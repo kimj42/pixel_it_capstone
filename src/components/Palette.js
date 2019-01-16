@@ -78,19 +78,19 @@ class Palette extends Component {
 
   pickColor = (event) => {
     if (event.clientX >= 80 && event.clientX <= 110 && event.clientY >= 210 && event.clientY <= 240 ) {
-      console.log("PINK");
+      // console.log("PINK");
       this.findColor(0, 0, 30, 30);
     }
     else if (event.clientX >= 110 && event.clientX <= 140 && event.clientY >= 210 && event.clientY <= 240) {
-      console.log("MAGENTA");
+      // console.log("MAGENTA");
       this.findColor(30, 0, 30, 30);
     }
     else if (event.clientX >= 80 && event.clientX <= 110 && event.clientY >= 240 && event.clientY <= 270) {
-      console.log("PURPLE");
+      // console.log("PURPLE");
       this.findColor(0, 30, 30, 30);
     }
     else if (event.clientX >= 110 && event.clientX <= 140 && event.clientY >= 240 && event.clientY <= 270) {
-      console.log("RED");
+      // console.log("RED");
       this.findColor(30, 30, 30, 30);
     }
   }
