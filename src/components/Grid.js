@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Grid.css';
 import Bucket from './Bucket.js'
+import Brush from './brush.png'
 
 class Grid extends Component {
 
@@ -105,6 +106,12 @@ class Grid extends Component {
     ctx.fillRect(0, 0, 300, 300);
   };
 
+  changeToBrush = () => {
+    this.setState({
+      bucketFill: false,
+    })
+  }
+
   render() {
 
     return (
@@ -112,9 +119,17 @@ class Grid extends Component {
         <canvas ref="canvas" width="300" height="300">
         </canvas>
 
+
+
         <section className="clear-btn-container">
           <button onClick={this.clearCanvas}>
             Reset
+          </button>
+        </section>
+
+        <section>
+          <button onClick={this.changeToBrush}>
+            <img src={Brush} alt="fill in one pixel at a time by clicking this brush button" className="brush"/>
           </button>
         </section>
 
