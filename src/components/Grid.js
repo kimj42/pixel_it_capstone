@@ -8,10 +8,6 @@ class Grid extends Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
-      bucketFill: false,
-    }
   }
 
   componentDidMount() {
@@ -107,10 +103,10 @@ class Grid extends Component {
     // const ctx = canvas.getContext('2d');
     //
     // ctx.fillStyle = `${this.props.colorToUse}`
-    // ctx.fillRect(0, 0, 300, 300);
-    this.setState({
-      bucketFill: true,
-    })
+    // // ctx.fillRect(0, 0, 300, 300);
+    // this.setState({
+    //   bucketFill: true,
+    // })
   };
 
   render() {
