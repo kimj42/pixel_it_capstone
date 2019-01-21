@@ -9,6 +9,10 @@ class Grid extends Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      bucketOn: false,
+    }
   }
 
   componentDidMount() {
@@ -86,33 +90,45 @@ class Grid extends Component {
 
     let mousePressed = false;
 
-    canvas.addEventListener('mousedown', (event) => {mousePressed = true;
-    this.handleClick(event);
-    });
-    canvas.addEventListener('mousemove', (event) => { if (mousePressed) {
+    if (this.state.bucketOn === false){
+      canvas.addEventListener('mousedown', (event) => {mousePressed = true;
       this.handleClick(event);
-    }});
-    canvas.addEventListener('mouseup', (event) => {
-      mousePressed = false;
-      this.handleClick(event);
-    });
+      });
+      canvas.addEventListener('mousemove', (event) => { if (mousePressed) {
+        this.handleClick(event);
+      }});
+      canvas.addEventListener('mouseup', (event) => {
+        mousePressed = false;
+        this.handleClick(event);
+      });
+    }
+    else if (this.state.bucketOn === true){
+      console.log("THIS WORKS");
+    }
+
   };
 
   bucketFillGrid = () => {
     console.log("BUC IN GRID");
-    // const canvas = this.refs.canvas;
-    // const ctx = canvas.getContext('2d');
-    //
-    // ctx.fillStyle = `${this.props.colorToUse}`
-    // // ctx.fillRect(0, 0, 300, 300);
-    // this.setState({
-    //   bucketFill: true,
-    // })
+    const ctx = this.refs.canvas.getContext('2d');
+
+    ctx.fillStyle = `${this.props.colorToUse}`
+    ctx.fillRect(0, 0, 300, 300);
+  };
+
+  changeToBucket = () => {
+    this.setState({
+      bucketOn: true,
+    }, () => {
+      this.refs.canvas.addEventListener('click',
+        this.bucketFillGrid)
+      }
+    );
   };
 
   changeToBrush = () => {
-    this.setState({
-      bucketFill: false,
+    return this.setState({
+      bucketOn: false,
     })
   }
 

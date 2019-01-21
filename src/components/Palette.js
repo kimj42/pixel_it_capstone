@@ -77,8 +77,6 @@ class Palette extends Component {
   }
 
   pickColor = (event) => {
-    console.log("i'm in pick color in palette");
-    console.log(event.clientX, event.clientY);
     if (event.clientX >= 80 && event.clientX <= 110 && event.clientY >= 210 && event.clientY <= 240 ) {
       console.log("PINK");
       this.findColor(0, 0, 30, 30);
