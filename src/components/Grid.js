@@ -4,8 +4,6 @@ import Bucket from './Bucket.js'
 import Brush from './brush.png'
 import SaveArt from './SaveArt.js'
 
-
-
 class Grid extends Component {
 
   constructor(props) {
@@ -13,6 +11,7 @@ class Grid extends Component {
 
     this.state = {
       bucketOn: false,
+      collection: [],
     }
   }
 
@@ -68,8 +67,7 @@ class Grid extends Component {
     };
   };
 
-  updateCanvas() {
-    // this gets the ref attribute from canvas tag
+  drawGrid() {
     const canvas = this.refs.canvas;
     // ctx means context and 2d lets me do a 2d drawing or fill
     const ctx = canvas.getContext('2d');
@@ -88,6 +86,13 @@ class Grid extends Component {
       ctx.lineWidth = 1;
       ctx.stroke();
     };
+  }
+
+  updateCanvas() {
+    // this gets the ref attribute from canvas tag
+    const canvas = this.refs.canvas;
+    // ctx means context and 2d lets me do a 2d drawing or fill
+    this.drawGrid();
 
     let mousePressed = false;
 
@@ -135,7 +140,22 @@ class Grid extends Component {
 
   save = () => {
     console.log("saved");
+    // Canvas2Image.saveAsPNG(this.refs.canvas);
+    // window.open(this.refs.canvas.toDataURL());
+    // console.log(this.refs.canvas.toDataURL("image/png"));
+
+    let newCollection = this.state.collection;
+    newCollection.push(`${this.refs.canvas.toDataURL("image/png")}`);
+
+    this.setState({
+      collection: newCollection
+    });
+      console.log(`${this.refs.canvas.toDataURL("image/png")}`);
+
+    //this to save to local machine
+    // window.open(this.refs.canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"));
   }
+
 
   render() {
 
