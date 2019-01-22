@@ -5,6 +5,7 @@ import Palette from './components/Palette.js'
 import Delete from './components/EraseSelectedPixel.js';
 
 
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -37,6 +38,8 @@ class App extends Component {
       currentColor: "white",
     })
   }
+
+
 
   render() {
     return (

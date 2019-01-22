@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Grid.css';
 import Bucket from './Bucket.js'
 import Brush from './brush.png'
+import SaveArt from './SaveArt.js'
 
 
 
@@ -132,6 +133,10 @@ class Grid extends Component {
     })
   }
 
+  save = () => {
+    console.log("saved");
+  }
+
   render() {
 
     return (
@@ -155,6 +160,7 @@ class Grid extends Component {
 
         <section>
           <Bucket colorToUse={this.props.colorToUse} clickHandler={this.bucketFillGrid}/>
+          <SaveArt saveHandler={this.save} />
         </section>
       </div>
     );
