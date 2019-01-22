@@ -12,6 +12,7 @@ class Grid extends Component {
     this.state = {
       bucketOn: false,
       collection: [],
+      currentArt: "",
     }
   }
 
@@ -148,7 +149,8 @@ class Grid extends Component {
     newCollection.push(`${this.refs.canvas.toDataURL("image/png")}`);
 
     this.setState({
-      collection: newCollection
+      collection: newCollection,
+      currentArt: `${this.refs.canvas.toDataURL("image/png")}`,
     });
       console.log(`${this.refs.canvas.toDataURL("image/png")}`);
 
@@ -181,6 +183,11 @@ class Grid extends Component {
         <section>
           <Bucket colorToUse={this.props.colorToUse} clickHandler={this.bucketFillGrid}/>
           <SaveArt saveHandler={this.save} />
+        </section>
+
+
+        <section>
+          <img src={this.state.currentArt} width="100" alt="current art"/>
         </section>
       </div>
     );
