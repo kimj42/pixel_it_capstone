@@ -19,7 +19,7 @@ class App extends Component {
   componentDidMount() {
     // could have used the asyn n try stuff but it seems unnecessary but good to know theres diff way to do it too. seems COR just literally lets u use the route
     document.title = "Pixel It";
-    axios.get('http://localhost:8000/api/questions/')
+    axios.get('http://localhost:8000/api/images/')
     .then((response) => {
       this.setState({
         practiceApp: response.data,
@@ -63,12 +63,12 @@ class App extends Component {
 
 
   render() {
-    let pics = this.state.collection;
-
-    let showCollection = pics.map((pic, i) => {
-        console.log(pic);
-        return <li className="pic"><img src={pic} width="200" alt="pic" /></li>
-      })
+    // let pics = this.state.collection;
+    //
+    // let showCollection = pics.map((pic, i) => {
+    //     console.log(pic);
+    //     return <li className="pic"><img src={pic} width="200" alt="pic" /></li>
+    //   })
 
       let arts = this.state.practiceApp;
       let artColl = arts.map(item => (

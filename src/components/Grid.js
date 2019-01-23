@@ -146,22 +146,16 @@ class Grid extends Component {
   }
 
   save = () => {
-    console.log("saved");
-    // Canvas2Image.saveAsPNG(this.refs.canvas);
-    // window.open(this.refs.canvas.toDataURL());
-    // console.log(this.refs.canvas.toDataURL("image/png"));
 
-    let newCollection = this.state.collection;
-    newCollection.push(`${this.refs.canvas.toDataURL("image/png")}`);
+    // let newCollection = this.state.collection;
+    // newCollection.push(`${this.refs.canvas.toDataURL("image/png")}`);
 
-
-console.log(this.refs.canvas.toDataURL("image/png").length);
     const art = {
       "data_url": `${this.refs.canvas.toDataURL("image/png")}`,
     "pub_date": null,
     }
 
-    axios.post('http://localhost:8000/api/questions/', art)
+    axios.post('http://localhost:8000/api/images/', art)
     .then((response) => {
       console.log(response.data);
     })
@@ -169,14 +163,13 @@ console.log(this.refs.canvas.toDataURL("image/png").length);
       console.log("FAILED", error);
     })
 
+    //
+    // this.setState({
+    //   collection: newCollection,
+    //   currentArt: `${this.refs.canvas.toDataURL("image/png")}`,
+    // });
 
-    this.setState({
-      collection: newCollection,
-      currentArt: `${this.refs.canvas.toDataURL("image/png")}`,
-    });
-
-    this.props.parseCollection(this.state.collection);
-
+    // this.props.parseCollection(this.state.collection);
 
     //this to save to local machine
     // window.open(this.refs.canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"));
