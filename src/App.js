@@ -17,6 +17,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    // could have used the asyn n try stuff but it seems unnecessary but good to know theres diff way to do it too. seems COR just literally lets u use the route
     document.title = "Pixel It";
     axios.get('http://localhost:8000/api/questions/')
     .then((response) => {
@@ -98,13 +99,9 @@ class App extends Component {
             <span className="mistyrose">G</span><span className="lightPink ">A</span><span className="hotPink">L</span><span className="fushcia">L</span><span className="hotPink">E</span> <span className="lightPink">R</span><span className="mistyrose">Y</span>
           </h1>
           <ul className="gallery">
-            {showCollection}
+            {artColl}
           </ul>
         </section>
-
-        <div>
-        {artColl}
-      </div>
       </div>
     );
   }

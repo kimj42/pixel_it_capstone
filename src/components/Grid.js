@@ -4,6 +4,7 @@ import Bucket from './Bucket.js'
 import Brush from './brush.png'
 import SaveArt from './SaveArt.js'
 import Delete from './EraseSelectedPixel.js';
+import axios from 'axios';
 // import { CirclePicker } from 'react-color';
 
 
@@ -152,6 +153,22 @@ class Grid extends Component {
 
     let newCollection = this.state.collection;
     newCollection.push(`${this.refs.canvas.toDataURL("image/png")}`);
+
+
+console.log(this.refs.canvas.toDataURL("image/png").length);
+    const art = {
+      "data_url": `${this.refs.canvas.toDataURL("image/png")}`,
+    "pub_date": null,
+    }
+
+    axios.post('http://localhost:8000/api/questions/', art)
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.log("FAILED", error);
+    })
+
 
     this.setState({
       collection: newCollection,
