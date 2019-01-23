@@ -25,6 +25,7 @@ class App extends Component {
   }
 
   changeColor = (color) => {
+    console.log("CHANGE COLOR");
     if (color !== "white"){
       this.setState({
         currentColor: color,
@@ -47,7 +48,6 @@ class App extends Component {
     axios.get('http://localhost:8000/api/images/')
     .then((response) => {
       this.setState({
-        collection: pics,
         practiceApp: response.data,
       });
     })

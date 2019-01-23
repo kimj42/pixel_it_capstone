@@ -22,14 +22,14 @@ class Palette extends Component {
 
     for (let i = 0; i <= ctx.canvas.width; i += 30) {
       ctx.moveTo(i, 0);
-      ctx.lineTo(i, 60);
+      ctx.lineTo(i, 120);
       ctx.lineWidth = 1;
       ctx.stroke();
     };
 
     for (let j = 0; j <= ctx.canvas.height; j += 30) {
       ctx.moveTo(0, j);
-      ctx.lineTo(60, j);
+      ctx.lineTo(120, j);
       ctx.lineWidth = 1;
       ctx.stroke();
     };
@@ -41,18 +41,58 @@ class Palette extends Component {
 
   fillColor() {
     const ctx = this.refs.canvas.getContext('2d');
-    ctx.fillStyle = "pink";
+    ctx.fillStyle = "#f44336";
     // move to right, move to top, lengthen to right, lengthen to bottom
     ctx.fillRect(0, 0, 30, 30);
 
-    ctx.fillStyle = "magenta";
-    ctx.fillRect(30, 0, 30, 30);
-    //
-    ctx.fillStyle = "purple";
+    ctx.fillStyle = "#e91e63";
+    // move to right, move to top, lengthen to right, lengthen to bottom
     ctx.fillRect(0, 30, 30, 30);
-    //
-    ctx.fillStyle = "red";
+
+    ctx.fillStyle = "#9c27b0";
+    // move to right, move to top, lengthen to right, lengthen to bottom
+    ctx.fillRect(0, 60, 30, 30);
+
+    ctx.fillStyle = "#673ab7";
+    // move to right, move to top, lengthen to right, lengthen to bottom
+    ctx.fillRect(0, 90, 30, 30);
+
+    ctx.fillStyle = "#006b76";
+    ctx.fillRect(30, 0, 30, 30);
+
+    ctx.fillStyle = "#1273de";
+    ctx.fillRect(60, 0, 30, 30);
+
+    ctx.fillStyle = "#004dcf";
+    ctx.fillRect(90, 0, 30, 30);
+
+    ctx.fillStyle = "#eb9694";
     ctx.fillRect(30, 30, 30, 30);
+    //
+    ctx.fillStyle = "#fad0c3";
+    ctx.fillRect(30, 60, 30, 30);
+
+    ctx.fillStyle = "#ffeb3b";
+    ctx.fillRect(30, 90, 30, 30);
+
+    ctx.fillStyle = "#ffc107";
+    ctx.fillRect(60, 30, 30, 30);
+
+    ctx.fillStyle = "#f06292";
+    ctx.fillRect(90, 90, 30, 30);
+
+    ctx.fillStyle = "#795548";
+    ctx.fillRect(60, 60, 30, 30);
+
+    ctx.fillStyle = "#194d33";
+    ctx.fillRect(60, 90, 30, 30);
+
+    ctx.fillStyle = "#00bcd4";
+    ctx.fillRect(90, 60, 30, 30);
+
+    ctx.fillStyle = "#666666";
+    ctx.fillRect(90, 30, 30, 30);
+
   }
 
   findColor(x, y, w, h) {
@@ -77,21 +117,22 @@ class Palette extends Component {
   }
 
   pickColor = (event) => {
-    if (event.clientX >= 80 && event.clientX <= 110 && event.clientY >= 210 && event.clientY <= 240 ) {
-      console.log("PINK");
-      this.findColor(0, 0, 30, 30);
-    }
-    else if (event.clientX >= 110 && event.clientX <= 140 && event.clientY >= 210 && event.clientY <= 240) {
-      // console.log("MAGENTA");
-      this.findColor(30, 0, 30, 30);
-    }
-    else if (event.clientX >= 80 && event.clientX <= 110 && event.clientY >= 240 && event.clientY <= 270) {
-      // console.log("PURPLE");
-      this.findColor(0, 30, 30, 30);
-    }
-    else if (event.clientX >= 110 && event.clientX <= 140 && event.clientY >= 240 && event.clientY <= 270) {
-      // console.log("RED");
-      this.findColor(30, 30, 30, 30);
+
+    let minY = event.target.offsetTop;
+    let maxY = minY + 30;
+    //1st row
+    for (let y = 0; y <= 90; y += 30) {
+      let x = 0;
+
+      for (let minX = event.target.offsetLeft; minX <= (event.target.offsetLeft + (event.target.height - 30)); minX += 30) {
+          let maxX = minX + 30;
+          if (event.clientX >= minX && event.clientX <= maxX && event.clientY >= minY && event.clientY <= maxY) {
+            this.findColor(x, y, 30, 30);
+          }
+          x += 30;
+      }
+      minY += 30;
+      maxY += 30;
     }
   }
 
@@ -99,7 +140,7 @@ class Palette extends Component {
 
     return (
       <div className="palette">
-        <canvas ref="canvas" width="60" height="60">
+        <canvas ref="canvas" width="120" height="120">
         </canvas>
       </div>
     );

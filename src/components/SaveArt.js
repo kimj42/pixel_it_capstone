@@ -10,7 +10,9 @@ class SaveArt extends Component {
   render() {
     return (
       <section>
-        <img src={Save} onClick={this.onClick} alt="save your work and show it on the gallery below with one click using this save button" className="btn-change"/>
+        <div class="container">
+        <img src={Save} onClick={this.onClick} alt="save your work and show it on the gallery below with one click using this save button" className="btn-change" data-toggle="tooltip" title="Save" tabindex="0" />
+        </div>
       </section>
     )
   }

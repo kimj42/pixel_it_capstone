@@ -146,9 +146,6 @@ class Grid extends Component {
   }
 
   save = () => {
-
-
-
     const art = {
       "data_url": `${this.refs.canvas.toDataURL("image/png")}`,
     "pub_date": null,
@@ -157,20 +154,17 @@ class Grid extends Component {
     axios.post('http://localhost:8000/api/images/', art)
     .then((response) => {
       console.log(response.data);
+      this.props.parseCollection();
     })
     .catch((error) => {
       console.log("FAILED", error);
     })
 
-    let newCollection = this.state.collection;
-    newCollection.push(`${this.refs.canvas.toDataURL("image/png")}`);
+    let newCollection = [...this.state.collection, this.refs.canvas.toDataURL("image/png")];
 
-    this.setState({
-      collection: newCollection,
-      currentArt: `${this.refs.canvas.toDataURL("image/png")}`,
-    });
+    // this.props.updatePracticeApp(newCollection);
 
-    this.props.parseCollection(this.state.collection);
+
 
     //this to save to local machine
     // window.open(this.refs.canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"));
