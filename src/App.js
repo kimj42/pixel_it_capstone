@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Grid from './components/Grid.js'
 import Palette from './components/Palette.js'
-
-
-
+import axios from 'axios';
 
 class App extends Component {
   constructor(props) {
@@ -13,12 +11,24 @@ class App extends Component {
     this.state = {
       currentColor: "green",
       collection: [],
+      practiceApp: [],
     }
 
   }
 
-  componentDidMount(){
-    document.title = "Pixel It"
+  componentDidMount() {
+    document.title = "Pixel It";
+    axios.get('http://localhost:8000/api/questions/')
+    .then((response) => {
+      this.setState({
+        practiceApp: response.data,
+      });
+    })
+    .catch((error) => {
+      this.setState({
+        error: error.message
+      });
+    })
   }
 
   changeColor = (color) => {
@@ -35,22 +45,15 @@ class App extends Component {
   }
 
   eraseColor = () => {
-    // console.log("ERASE COLOR IN APP");
     return this.setState({
       currentColor: "white",
     })
   }
 
   parseCollection = (pics) => {
-    // pics.map((pic, i) => {
-    //   // console.log(`${pic}`);
-    //   let newCollection = this.state.collection;
-    //   newCollection.push(`${pic}`);
-
-      this.setState({
-        collection: pics,
-      })
-    // })
+    this.setState({
+      collection: pics,
+    })
   };
 
 
@@ -65,6 +68,11 @@ class App extends Component {
         console.log(pic);
         return <li className="pic"><img src={pic} width="200" alt="pic" /></li>
       })
+
+      let arts = this.state.practiceApp;
+      let artColl = arts.map(item => (
+        <li className="pic"><img src={item.data_url} width="200" alt="pic" /></li>
+      ))
 
     return (
       <div className="App">
@@ -93,6 +101,10 @@ class App extends Component {
             {showCollection}
           </ul>
         </section>
+
+        <div>
+        {artColl}
+      </div>
       </div>
     );
   }
