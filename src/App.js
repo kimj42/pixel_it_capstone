@@ -12,6 +12,7 @@ class App extends Component {
       currentColor: "green",
       collection: [],
       practiceApp: [],
+      update: false,
     }
 
   }
@@ -19,17 +20,8 @@ class App extends Component {
   componentDidMount() {
     // could have used the asyn n try stuff but it seems unnecessary but good to know theres diff way to do it too. seems COR just literally lets u use the route
     document.title = "Pixel It";
-    axios.get('http://localhost:8000/api/images/')
-    .then((response) => {
-      this.setState({
-        practiceApp: response.data,
-      });
-    })
-    .catch((error) => {
-      this.setState({
-        error: error.message
-      });
-    })
+    this.parseCollection();
+
   }
 
   changeColor = (color) => {
@@ -52,24 +44,20 @@ class App extends Component {
   }
 
   parseCollection = (pics) => {
-    this.setState({
-      collection: pics,
+    axios.get('http://localhost:8000/api/images/')
+    .then((response) => {
+      this.setState({
+        collection: pics,
+        practiceApp: response.data,
+      });
+    })
+    .catch((error) => {
+      console.log("ERROR IN PARSE");
     })
   };
 
 
-
-
-
-
   render() {
-    // let pics = this.state.collection;
-    //
-    // let showCollection = pics.map((pic, i) => {
-    //     console.log(pic);
-    //     return <li className="pic"><img src={pic} width="200" alt="pic" /></li>
-    //   })
-
       let arts = this.state.practiceApp;
       let artColl = arts.map(item => (
         <li className="pic"><img src={item.data_url} width="200" alt="pic" /></li>

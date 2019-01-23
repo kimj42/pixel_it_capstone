@@ -147,8 +147,7 @@ class Grid extends Component {
 
   save = () => {
 
-    // let newCollection = this.state.collection;
-    // newCollection.push(`${this.refs.canvas.toDataURL("image/png")}`);
+
 
     const art = {
       "data_url": `${this.refs.canvas.toDataURL("image/png")}`,
@@ -163,13 +162,15 @@ class Grid extends Component {
       console.log("FAILED", error);
     })
 
-    //
-    // this.setState({
-    //   collection: newCollection,
-    //   currentArt: `${this.refs.canvas.toDataURL("image/png")}`,
-    // });
+    let newCollection = this.state.collection;
+    newCollection.push(`${this.refs.canvas.toDataURL("image/png")}`);
 
-    // this.props.parseCollection(this.state.collection);
+    this.setState({
+      collection: newCollection,
+      currentArt: `${this.refs.canvas.toDataURL("image/png")}`,
+    });
+
+    this.props.parseCollection(this.state.collection);
 
     //this to save to local machine
     // window.open(this.refs.canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"));
@@ -186,18 +187,27 @@ class Grid extends Component {
 
 
         <section className="clear-btn-container">
-          <button onClick={this.clearCanvas}>
-            Reset
-          </button>
-        </section>
-
-        <section>
-          <button onClick={this.changeToBrush}>
-            <img src={Brush} alt="fill in one pixel at a time by clicking this brush button" className="brush"/>
-          </button>
-          <Bucket colorToUse={this.props.colorToUse} clickHandler={this.bucketFillGrid}/>
-          <Delete eraseColor={this.props.eraseColor}/>
-          <SaveArt saveHandler={this.save} />
+          <ul className="button-list">
+            <li className="button-space">
+              <button onClick={this.clearCanvas}><img src="https://www.freeiconspng.com/uploads/power-restart-icon-3.png"
+                className="button" alt="reset button"/>
+              </button>
+            </li>
+            <li className="button-space">
+              <button onClick={this.changeToBrush}>
+                <img src={Brush} alt="fill in one pixel at a time by clicking this brush button" className="button"/>
+              </button>
+            </li>
+            <li className="button-space">
+              <Bucket colorToUse={this.props.colorToUse} clickHandler={this.bucketFillGrid} />
+            </li>
+            <li className="button-space">
+              <Delete eraseColor={this.props.eraseColor} />
+            </li>
+            <li className="button-space">
+              <SaveArt saveHandler={this.save} />
+            </li>
+          </ul>
         </section>
 
       </div>
