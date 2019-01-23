@@ -117,7 +117,6 @@ class Palette extends Component {
   }
 
   pickColor = (event) => {
-
     let minY = event.target.offsetTop;
     let maxY = minY + 30;
     //1st row
