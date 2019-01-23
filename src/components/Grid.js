@@ -3,6 +3,9 @@ import './Grid.css';
 import Bucket from './Bucket.js'
 import Brush from './brush.png'
 import SaveArt from './SaveArt.js'
+import Delete from './EraseSelectedPixel.js';
+import { SketchPicker } from 'react-color';
+
 
 class Grid extends Component {
 
@@ -78,6 +81,7 @@ class Grid extends Component {
       ctx.moveTo(i, 0);
       ctx.lineTo(i, 300);
       ctx.lineWidth = 1;
+      ctx.strokeStyle = 'white';
       ctx.stroke();
     };
 
@@ -85,6 +89,7 @@ class Grid extends Component {
       ctx.moveTo(0, j);
       ctx.lineTo(300, j);
       ctx.lineWidth = 1;
+      ctx.strokeStyle = 'white';
       ctx.stroke();
     };
   }
@@ -152,7 +157,9 @@ class Grid extends Component {
       collection: newCollection,
       currentArt: `${this.refs.canvas.toDataURL("image/png")}`,
     });
-      console.log(`${this.refs.canvas.toDataURL("image/png")}`);
+
+    this.props.parseCollection(this.state.collection);
+
 
     //this to save to local machine
     // window.open(this.refs.canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"));
@@ -185,15 +192,17 @@ class Grid extends Component {
           <SaveArt saveHandler={this.save} />
         </section>
 
+        <section>
+          <Delete eraseColor={this.props.eraseColor}/>
+        </section>
 
         <section>
-          <img src={this.state.currentArt} width="100" alt="current art"/>
+          <SketchPicker/>
         </section>
       </div>
     );
   };
 };
-
 
 export default Grid;
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Grid from './components/Grid.js'
 import Palette from './components/Palette.js'
-import Delete from './components/EraseSelectedPixel.js';
+
 
 
 
@@ -12,6 +12,7 @@ class App extends Component {
 
     this.state = {
       currentColor: "green",
+      collection: [],
     }
   }
 
@@ -39,9 +40,31 @@ class App extends Component {
     })
   }
 
+  parseCollection = (pics) => {
+    // pics.map((pic, i) => {
+    //   // console.log(`${pic}`);
+    //   let newCollection = this.state.collection;
+    //   newCollection.push(`${pic}`);
+
+      this.setState({
+        collection: pics,
+      })
+    // })
+  };
+
+
+
+
 
 
   render() {
+    let pics = this.state.collection;
+
+    let showCollection = pics.map((pic, i) => {
+        console.log(pic);
+        return <li className="pic"><img src={pic} width="200" alt="pic" /></li>
+      })
+
     return (
       <div className="App">
         <header className="App-header">
@@ -53,15 +76,20 @@ class App extends Component {
 
         </header>
         <section>
-          <Grid colorToUse={this.state.currentColor}/>
+          <Grid colorToUse={this.state.currentColor} parseCollection={this.parseCollection}
+              eraseColor={this.eraseColor}
+            />
           <Palette changeColor={this.changeColor}/>
         </section>
 
+
+
         <section>
-          <ul>
-            <li>
-              <Delete eraseColor={this.eraseColor}/>
-            </li>
+          <h1 className="g-title">
+            <span className="mistyrose">G</span><span className="lightPink ">A</span><span className="hotPink">L</span><span className="fushcia">L</span><span className="hotPink">E</span> <span className="lightPink">R</span><span className="mistyrose">Y</span>
+          </h1>
+          <ul className="gallery">
+            {showCollection}
           </ul>
         </section>
       </div>
