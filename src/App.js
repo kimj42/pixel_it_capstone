@@ -14,6 +14,7 @@ class App extends Component {
       currentColor: "green",
       collection: [],
     }
+
   }
 
   componentDidMount(){

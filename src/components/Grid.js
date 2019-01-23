@@ -4,7 +4,7 @@ import Bucket from './Bucket.js'
 import Brush from './brush.png'
 import SaveArt from './SaveArt.js'
 import Delete from './EraseSelectedPixel.js';
-import { SketchPicker } from 'react-color';
+// import { CirclePicker } from 'react-color';
 
 
 class Grid extends Component {
@@ -185,20 +185,11 @@ class Grid extends Component {
           <button onClick={this.changeToBrush}>
             <img src={Brush} alt="fill in one pixel at a time by clicking this brush button" className="brush"/>
           </button>
-        </section>
-
-        <section>
           <Bucket colorToUse={this.props.colorToUse} clickHandler={this.bucketFillGrid}/>
+          <Delete eraseColor={this.props.eraseColor}/>
           <SaveArt saveHandler={this.save} />
         </section>
 
-        <section>
-          <Delete eraseColor={this.props.eraseColor}/>
-        </section>
-
-        <section>
-          <SketchPicker/>
-        </section>
       </div>
     );
   };
