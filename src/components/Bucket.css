@@ -1,4 +1,14 @@
-.bucket {
+.btn-change {
   width: 40px;
   height: 40px;
+  background: lightseagreen;
+  float: left;
+  box-shadow: 0 0 1px #ccc;
+  -webkit-transition: all 0.5s ease-in-out;
+}
+.btn-change:hover{
+  width: 40px;
+  height: 40px;
+  -webkit-transform: scale(1.1);
+    background: #31708f;
 }

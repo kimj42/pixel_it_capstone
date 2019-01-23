@@ -11,9 +11,7 @@ class Delete extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.onClick}>
-        <img src={Eraser} alt="delete selected pixel after clicking on this button" className="eraser" />
-        </button>
+        <img src={Eraser} onClick={this.onClick} alt="delete selected pixel after clicking on this button" className="btn-change" />
       </div>
     );
   };

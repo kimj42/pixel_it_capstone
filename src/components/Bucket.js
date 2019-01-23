@@ -10,9 +10,7 @@ class Bucket extends Component {
   render() {
     return (
       <section>
-        <button onClick={this.onClick}>
-        <img src={BucketIcon} alt="fill in multiple pixels with one click using this bucket button" className="bucket"/>
-        </button>
+        <img src={BucketIcon} onClick={this.onClick} alt="fill in multiple pixels with one click using this bucket button" className="btn-change"/>
       </section>
     )
   }

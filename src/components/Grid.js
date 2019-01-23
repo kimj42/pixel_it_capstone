@@ -178,25 +178,24 @@ class Grid extends Component {
 
 
   render() {
-
     return (
       <div className="canvas-container">
         <canvas ref="canvas" width="300" height="300">
         </canvas>
 
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
 
         <section className="clear-btn-container">
+          <div class="container">
+	<div class="row">
           <ul className="button-list">
             <li className="button-space">
-              <button onClick={this.clearCanvas}><img src="https://www.freeiconspng.com/uploads/power-restart-icon-3.png"
-                className="button" alt="reset button"/>
-              </button>
+              <img src="https://www.freeiconspng.com/uploads/power-restart-icon-3.png"
+                className="btn-change" alt="reset button" onClick={this.clearCanvas}/>
             </li>
             <li className="button-space">
-              <button onClick={this.changeToBrush}>
-                <img src={Brush} alt="fill in one pixel at a time by clicking this brush button" className="button"/>
-              </button>
+                <img src={Brush} onClick={this.changeToBrush} alt="fill in one pixel at a time by clicking this brush button" className="btn-change"/>
             </li>
             <li className="button-space">
               <Bucket colorToUse={this.props.colorToUse} clickHandler={this.bucketFillGrid} />
@@ -208,6 +207,9 @@ class Grid extends Component {
               <SaveArt saveHandler={this.save} />
             </li>
           </ul>
+        </div>
+</div>
+
         </section>
 
       </div>

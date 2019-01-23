@@ -3,9 +3,6 @@ import './SaveArt.css';
 import Save from './save.png'
 
 class SaveArt extends Component {
-
-
-
   onClick = () => {
     this.props.saveHandler();
   }
@@ -13,10 +10,7 @@ class SaveArt extends Component {
   render() {
     return (
       <section>
-
-        <button onClick={this.onClick}>
-        <img src={Save} alt="save your work and show it on the gallery below with one click using this save button" className="save"/>
-        </button>
+        <img src={Save} onClick={this.onClick} alt="save your work and show it on the gallery below with one click using this save button" className="btn-change"/>
       </section>
     )
   }
