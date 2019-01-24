@@ -1,58 +1,33 @@
 .App-header {
-  /* background-color: forestgreen; */
   min-height: 10vh;
-  text-align: right;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  padding-right: 2em;
+  text-align: left;
+  font-size: 45px;
+  padding-left: 1em;
 }
 
 body {
   /* background: url("https://i2.wp.com/wallpapers.ae/wp-content/uploads/2015/01/Colorful-Dots-Background-Wallpapers.jpg?fit=2400%2C1801"); */
-  background: silver;
+  background: #ffa500;
   width: 100%;
   height: 100%;
 }
 
 h1 {
   margin-top: auto;
-  padding-right: 1em;
+  /* padding-right: 1em; */
 }
 
 .mistyrose {
-  font-family: 'Faster One', cursive;
-  color: mistyrose;
+  font-family: 'Bungee Shade', cursive;
+  color: 	#ff4500;
   font-weight: 600;
   /* font-size: 2em; */
 }
 
 .lightPink  {
-  font-family: 'Faster One', cursive;
-  color: #FFB6C1 ;
+  font-family: 'Bungee Shade', cursive;
+  color: #ff4500 ;
   font-weight: 600;
-  /* font-size: 2em; */
-}
-
-.hotPink {
-  font-family: 'Faster One', cursive;
-  color: #FF69B4;
-  font-weight: 600;
-  /* font-size: 2em; */
-
-}
-
-.fushcia {
-  font-family: 'Faster One', cursive;
-  color: #FF00FF;
-  font-weight: 600;
-  /* font-size: 2em; */
-}
-
-.lightPink-space {
-  font-family: 'Faster One', cursive;
-  color: #FFB6C1 ;
-  font-weight: 600;
-  padding-left: 0.5em;
   /* font-size: 2em; */
 }
 
@@ -70,11 +45,11 @@ ul {
 .pic {
   padding-left: 2em;
   padding-right: 1em;
-  padding-top: 1em;
+  /* padding-top: 1em; */
 }
 
 .g-title {
-  padding-left: 2em;
-  padding-top: 4em;
-  font-size: 40px;
+  padding-left: 1em;
+  padding-top: 3em;
+  font-size: 45px;
 }

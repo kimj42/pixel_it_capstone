@@ -33,6 +33,7 @@ class Grid extends Component {
   }
 
   handleClick = (event) => {
+    console.log(event.target.offsetTop);
 
     let minY = event.target.offsetTop;
     let maxY = minY + 20;

@@ -67,9 +67,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1>
-            <span className="mistyrose">P</span><span className="lightPink ">i</span><span className="hotPink">x</span><span className="fushcia">e</span><span className="hotPink">l</span> <span className="lightPink-space">I</span><span className="mistyrose">t</span>
-            <link href="https://fonts.googleapis.com/css?family=Bungee+Outline" rel="stylesheet"/>
-            <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet"/>
+            <span className="mistyrose">PIXEL </span> <span className="lightPink">IT </span>
+            <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet"/>
           </h1>
 
         </header>
@@ -84,7 +83,7 @@ class App extends Component {
 
         <section>
           <h1 className="g-title">
-            <span className="mistyrose">G</span><span className="lightPink ">A</span><span className="hotPink">L</span><span className="fushcia">L</span><span className="hotPink">E</span> <span className="lightPink">R</span><span className="mistyrose">Y</span>
+            <span className="mistyrose">GALLERY</span>
           </h1>
           <ul className="gallery">
             {artColl}
