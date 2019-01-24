@@ -35,7 +35,6 @@ class Palette extends Component {
     };
 
     this.fillColor();
-
     canvas.addEventListener('click', this.pickColor);
   }
 
@@ -114,6 +113,8 @@ class Palette extends Component {
 
     let rgbColorName = `#${colorNames}`
     this.props.changeColor(rgbColorName);
+
+    return rgbColorName;
   }
 
   pickColor = (event) => {

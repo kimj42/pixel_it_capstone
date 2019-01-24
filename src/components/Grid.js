@@ -5,8 +5,6 @@ import Brush from './brush.png'
 import SaveArt from './SaveArt.js'
 import Delete from './EraseSelectedPixel.js';
 import axios from 'axios';
-// import { CirclePicker } from 'react-color';
-
 
 class Grid extends Component {
 
@@ -163,8 +161,6 @@ class Grid extends Component {
     let newCollection = [...this.state.collection, this.refs.canvas.toDataURL("image/png")];
 
     // this.props.updatePracticeApp(newCollection);
-
-
 
     //this to save to local machine
     // window.open(this.refs.canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"));
